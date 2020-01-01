@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+ini_set('memory_limit','256M');
 use Illuminate\Http\Request;
 use App\Enseignant;
-
+ 
 class EnseignantController extends Controller
 {
     /**
@@ -13,9 +13,9 @@ class EnseignantController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $enseignant=Enseignant::all();
-        return response()->json($enseignant);
+    {     
+        $enseignant=Enseignant::all();//récuperer tout les enseignats de la base de donnée 
+        return response()->json($enseignant); // les mettre dans un fichier json 
     }
 
     /**
@@ -34,8 +34,11 @@ class EnseignantController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    /*Sauvegatder dans la base de donnée les données du nouvel 
+    enseignant ajouté par l'admin apres avoir remplit le form on recupere les données et on les insere dans la BDD  */
+ 
     public function store(Request $request)
-    {
+    {   
         $enseignant=new Enseignant();
         $enseignant->nom=$request->nom;
         $enseignant->prenom=$request->prenom;
@@ -48,6 +51,7 @@ class EnseignantController extends Controller
         $enseignant->experience=$request->experience;
         $enseignant->save();
         return response()->json($enseignant);
+       
     }
 
     /**

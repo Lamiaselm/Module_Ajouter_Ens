@@ -12,8 +12,8 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('/enseignants','EnseignantController@index');
-Route::post('/save','EnseignantController@store');
+Route::get('/enseignants','EnseignantController@index'); //recuperer les infos de la BDD
+Route::post('/save','EnseignantController@store');  //sauvegarder les infos dans la BDD
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
