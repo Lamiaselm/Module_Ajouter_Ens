@@ -38,7 +38,8 @@ class EnseignantController extends Controller
     enseignant ajouté par l'admin apres avoir remplit le form on recupere les données et on les insere dans la BDD  */
  
     public function store(Request $request)
-    {   
+    {   $enseignant=Enseignant::all();
+         
         $enseignant=new Enseignant();
         $enseignant->nom=$request->nom;
         $enseignant->prenom=$request->prenom;
@@ -49,6 +50,7 @@ class EnseignantController extends Controller
         $enseignant->master=$request->master;
         $enseignant->doctorat=$request->doctorat;
         $enseignant->experience=$request->experience;
+     //   if($enseignant->nom==$enseignant.nom)
         $enseignant->save();
         return response()->json($enseignant);
        

@@ -22,5 +22,14 @@
         "sass-loader": "7.*",
         "vue": "^2.5.17",
         "vue-template-compiler": "^2.6.10"
-    }
+    },
+    "apidoc": {
+        "name": "example",
+        "version": "0.1.0",
+        "description": "apiDoc basic example",
+        "apidoc": {
+          "title": "Custom apiDoc browser title",
+          "url" : "https://api.github.com/v1"
+        }
+     }
 }
